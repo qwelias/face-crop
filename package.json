@@ -1,0 +1,25 @@
+{
+    "name": "face-crop",
+    "version": "1.0.0",
+    "description": "Detects face in image and crops it",
+    "engines": {
+        "node": ">4.0.0"
+    },
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://qwemaze@github.com/qwemaze/face-crop.git"
+    },
+    "author": "Elias Baryshnikov a.k.a. qwemaze <qwelias@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/qwemaze/face-crop/issues"
+    },
+    "homepage": "https://github.com/qwemaze/face-crop#readme",
+    "dependencies": {
+        "debug": "2.2.0",
+        "face-detect": "0.0.2"
+    },
+    "keywords": ["face", "detect", "crop", "image", "canvas", "photo"]
+}
