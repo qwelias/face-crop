@@ -1,6 +1,6 @@
 {
     "name": "face-crop",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Detects face in image and crops it",
     "engines": {
         "node": ">4.0.0"
@@ -18,8 +18,16 @@
     },
     "homepage": "https://github.com/qwemaze/face-crop#readme",
     "dependencies": {
+        "canvas": "1.3.12",
         "debug": "2.2.0",
         "face-detect": "0.0.2"
     },
-    "keywords": ["face", "detect", "crop", "image", "canvas", "photo"]
+    "keywords": [
+        "face",
+        "detect",
+        "crop",
+        "image",
+        "canvas",
+        "photo"
+    ]
 }
