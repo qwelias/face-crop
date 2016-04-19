@@ -11,7 +11,7 @@ Detects face in image and crops it.
   - **path** : _String_ - destination image absolute path
   - **width**? : _Number_ - destination image width ( equals **height** if not present )
   - **height**? : _Number_ - destination image height ( equals **width** if not present )
-- **scale**? : _Number_ - size multiplier of the found face
+- **scale**? : _Number_ - size multiplier of the found face ( _default_: **1** )
 - **force**? : _Boolean_ - crop and resize whole image even if no faces found ( _default_: **false** )
 
 ## Exceptions
