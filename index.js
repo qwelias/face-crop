@@ -11,7 +11,8 @@ const process = ( options ) => new Promise( ( resolve, reject ) => {
 	if ( !options.src || !options.dst ) return reject( new Error( '"src" and "dst" options required' ) )
 
 	options = Object.assign( {
-		scale: 1
+		scale: 1,
+		force: false
 	}, options );
 
 	Log( options );
@@ -34,7 +35,7 @@ const process = ( options ) => new Promise( ( resolve, reject ) => {
 			"min_neighbors": 1
 		} );
 
-		if ( faces.length == 0 ) return reject( new Error( 'No faces detected' ) );
+		if ( faces.length == 0 && !options.force ) return reject( new Error( 'No faces detected' ) );
 
 		Log( faces );
 
@@ -42,18 +43,40 @@ const process = ( options ) => new Promise( ( resolve, reject ) => {
 
 		Log( face );
 
+        if(!face) face = {
+            x: 0,
+            y: 0,
+            width: w,
+            height: h
+        }
+
 		face.cX = face.x + face.width / 2;
 		face.cY = face.y + face.height / 2;
 
+        let ratio = face.width / face.height;
+
 		if ( options.dst.width || options.dst.height ) {
+            ratio = options.dst.width / options.dst.height;
 			options.dst.width = options.dst.width || options.dst.height;
 			options.dst.height = options.dst.height || options.dst.width;
-			let ratio = options.dst.width / options.dst.height;
 			if ( ratio > 1 ) face.width = face.height * ratio;
 			if ( ratio < 1 ) face.height = face.width / ratio;
+            if ( ratio == 1 ){
+                let max = Math.max(face.width, face.height);
+                face.width = max;
+                face.height = max;
+            }
 		};
-		let width = Math.min( w, face.width * options.scale );
-		let height = Math.min( h, face.height * options.scale );
+
+		let width = face.width * options.scale;
+		let height = face.height * options.scale;
+
+        let coverRatio = Math.max(width / w, height / h);
+        if(coverRatio > 1){
+            width = width / coverRatio;
+            height = height / coverRatio;
+        }
+
 		let X = Math.max( 0, face.cX - width / 2 );
 		let Y = Math.max( 0, face.cY - height / 2 );
 
