@@ -9,8 +9,8 @@ Detects face in image and crops it.
 - **src** : _String_ - source image absolute path
 - **dst** : _Object_
   - **path** : _String_ - destination image absolute path
-  - **width**? : _Number_ - destination image width ( equals **height** is not present )
-  - **height**? : _Number_ - destination image height ( equals **width** is not present )
+  - **width**? : _Number_ - destination image width ( equals **height** if not present )
+  - **height**? : _Number_ - destination image height ( equals **width** if not present )
 - **scale**? : _Number_ - size multiplier of the found face
 
 ## Exceptions
