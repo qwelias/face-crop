@@ -1,6 +1,6 @@
 # face-crop
 ## Description
-Detects face in image and crops it.
+Detects face in an image and crops it.
 
 ## Installation
 `npm i face-crop`
